@@ -1,182 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Conexión Studios - Próximamente</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conexion Studios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, Helvetica, sans-serif;
+    body {
+      background: #0a0a0a;
+      color: white;
+      font-family: 'Segoe UI', system-ui, sans-serif;
     }
 
-    body{
-      height:100vh;
-      overflow:hidden;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background: linear-gradient(-45deg, #000000, #001f4d, #000814, #003b8b);
-      background-size: 400% 400%;
-      animation: fondoAnimado 12s ease infinite;
-      position:relative;
+    .top-bar {
+      background: linear-gradient(to right, #1a1a1a, #3a0000);
+      border-bottom: 3px solid #ef4444;
     }
 
-    /* Partículas */
-    body::before,
-    body::after{
-      content:'';
-      position:absolute;
-      width:200%;
-      height:200%;
-      background-repeat: repeat;
-      opacity:0.15;
-      animation: moverParticulas 25s linear infinite;
+    .social-card {
+      transition: all 0.4s ease;
     }
-
-    body::before{
-      background-image:
-      radial-gradient(circle, #00aaff 2px, transparent 2px);
-      background-size: 80px 80px;
-    }
-
-    body::after{
-      background-image:
-      radial-gradient(circle, #ffffff 1px, transparent 1px);
-      background-size: 120px 120px;
-      animation-direction: reverse;
-    }
-
-    .contenedor{
-      text-align:center;
-      z-index:2;
-      padding:40px;
-    }
-
-    h1{
-      color:white;
-      font-size: clamp(2rem, 6vw, 5rem);
-      text-transform:uppercase;
-      letter-spacing:5px;
-      animation: brillo 3s ease-in-out infinite alternate,
-                 entrada 2s ease;
-      text-shadow:
-      0 0 10px #00aeff,
-      0 0 20px #0077ff,
-      0 0 40px #0051ff;
-    }
-
-    p{
-      margin-top:20px;
-      color:#cfdfff;
-      font-size: clamp(1rem, 2vw, 1.5rem);
-      letter-spacing:3px;
-      animation: aparecer 4s infinite alternate;
-    }
-
-    /* Línea brillante */
-    .linea{
-      width:250px;
-      height:4px;
-      margin:25px auto;
-      border-radius:10px;
-      background: linear-gradient(90deg, transparent, #00aaff, transparent);
-      animation: lineaGlow 2s linear infinite;
-    }
-
-    /* Animaciones */
-    @keyframes fondoAnimado{
-      0%{
-        background-position:0% 50%;
-      }
-      50%{
-        background-position:100% 50%;
-      }
-      100%{
-        background-position:0% 50%;
-      }
-    }
-
-    @keyframes brillo{
-      from{
-        transform:scale(1);
-        text-shadow:
-        0 0 10px #00aeff,
-        0 0 20px #0077ff;
-      }
-
-      to{
-        transform:scale(1.05);
-        text-shadow:
-        0 0 20px #00c3ff,
-        0 0 40px #0088ff,
-        0 0 60px #0044ff;
-      }
-    }
-
-    @keyframes entrada{
-      from{
-        opacity:0;
-        transform:translateY(40px);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    @keyframes aparecer{
-      from{
-        opacity:0.5;
-      }
-
-      to{
-        opacity:1;
-      }
-    }
-
-    @keyframes moverParticulas{
-      from{
-        transform:translate(0,0);
-      }
-
-      to{
-        transform:translate(-200px,-200px);
-      }
-    }
-
-    @keyframes lineaGlow{
-      0%{
-        transform:translateX(-20px);
-        opacity:0.5;
-      }
-
-      50%{
-        transform:translateX(20px);
-        opacity:1;
-      }
-
-      100%{
-        transform:translateX(-20px);
-        opacity:0.5;
-      }
+    
+    .social-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.4);
     }
   </style>
 </head>
+<body class="min-h-screen">
 
-<body>
+  <!-- BARRA SUPERIOR -->
+  <header class="top-bar fixed top-0 left-0 w-full z-50 py-4">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xl">C</div>
+        <h1 class="text-3xl font-bold tracking-tighter">
+          Conexión <span class="text-red-500">Studios</span>
+        </h1>
+      </div>
+      <p class="text-gray-400 text-sm hidden md:block">Estudio Creativo • México</p>
+    </div>
+  </header>
 
-  <div class="contenedor">
-    <h1>Conexión Studios</h1>
+  <div class="pt-20 pb-12 px-4">
 
-    <div class="linea"></div>
+    <!-- Fondo Interactivo -->
+    <canvas id="particles" class="fixed inset-0 pointer-events-none opacity-40 z-[-1]"></canvas>
 
-    <p>Página Oficial Próximamente</p>
+    <div class="max-w-5xl mx-auto text-center">
+
+      <!-- Redes Sociales -->
+      <div class="mb-20">
+        <h2 class="text-3xl font-bold mb-10 text-red-400">Redes Oficiales</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-4xl mx-auto">
+          
+          <a href="instagram.com/conexion.studios" target="_blank" class="social-card bg-zinc-950 border border-red-900/50 hover:border-red-500 p-6 rounded-3xl flex flex-col items-center gap-4">
+            <i class="fa-brands fa-instagram text-6xl text-pink-500"></i>
+            <p class="font-semibold">Instagram</p>
+          </a>
+
+          <a href="tiktok.com/@conexionstudiosmx?is_from_webapp=1&sender_device=pc" target="_blank" class="social-card bg-zinc-950 border border-red-900/50 hover:border-red-500 p-6 rounded-3xl flex flex-col items-center gap-4">
+            <i class="fa-brands fa-tiktok text-6xl text-white"></i>
+            <p class="font-semibold">TikTok</p>
+          </a>
+
+          <a href="https://www.youtube.com/@conexionstudiosmx" target="_blank" class="social-card bg-zinc-950 border border-red-900/50 hover:border-red-500 p-6 rounded-3xl flex flex-col items-center gap-4">
+            <i class="fa-brands fa-youtube text-6xl text-red-500"></i>
+            <p class="font-semibold">YouTube</p>
+          </a>
+
+          <a href="https://www.threads.com/@es_conexsion" target="_blank" class="social-card bg-zinc-950 border border-red-900/50 hover:border-red-500 p-6 rounded-3xl flex flex-col items-center gap-4">
+            <i class="fa-brands fa-threads text-6xl text-white"></i>
+            <p class="font-semibold">Threads</p>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Actualización de página -->
+      <div class="max-w-md mx-auto bg-zinc-950 border border-red-900/50 rounded-3xl p-8">
+        <i class="fa-solid fa-arrow-trend-up text-4xl text-red-500 mb-4"></i>
+        <h3 class="text-2xl font-semibold mb-3">Actualización de página</h3>
+        <p class="text-gray-400">Estamos renovando completamente el sitio.<br>
+        <span class="text-red-400">Muy pronto tendrás más sorpresas</span></p>
+      </div>
+
+    </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-gray-500 text-sm border-t border-red-900/30">
+    © 2026 Conexion Studios • Todos los derechos reservados
+  </footer>
+
+  <!-- Script Partículas -->
+  <script>
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const particlesArray = [];
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2.5 + 0.8;
+        this.speedX = Math.random() * 0.6 - 0.3;
+        this.speedY = Math.random() * 0.6 - 0.3;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = '#ef4444';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 150; i++) {
+      particlesArray.push(new Particle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let p of particlesArray) {
+        p.update();
+        p.draw();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  </script>
 
 </body>
 </html>
