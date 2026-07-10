@@ -5,13 +5,17 @@
     --gris: #1b1b1b;
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: var(--negro);
-    color: #fff;
-    overflow-x:hidden;
-    line-height:1.6;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    overflow-x: hidden; /* Evita que la pantalla se mueva hacia los lados en móviles */
 }
 
 .background {
@@ -32,10 +36,15 @@ body {
 }
 @keyframes float { 0%{transform:translateY(100vh) scale(0.5); opacity:0} 50%{opacity:0.8} 100%{transform:translateY(-100vh) scale(1.2); opacity:0} }
 
+/* 2. HEADER Y HERO (Adaptable) */
 header {
-    position:sticky; top:0; width:100%; background:rgba(8,8,8,0.97);
-    z-index:1000; padding:1.2rem 5%; border-bottom:2px solid var(--rojo);
-    display:flex; justify-content:center; align-items:center;
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 .logo {
     font-size:2.5rem; font-weight:800; color:var(--rojo);
@@ -632,4 +641,71 @@ footer {
     section { padding:70px 0 24px; }
     .section-shell { padding:1.2rem 1rem; }
     .card, .red { min-width:0; }
+}
+
+/* AGREGAR AL FINAL DE TU ARCHIVO - ADAPTACIÓN PARA MÓVILES */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* 1. Scroll de Música y Series */
+    .horizontal-scroll {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 15px;
+        gap: 15px;
+    }
+    .horizontal-scroll .card-link {
+        flex: 0 0 75vw !important;
+        max-width: 300px;
+    }
+
+    /* 2. Sección Eventos y separación de tarjetas */
+    .roulette-viewport {
+        width: 100% !important;
+        padding: 10px !important;
+    }
+
+    #eventos-container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    .event-card {
+        padding: 13px !important; /* Un poco más compacto */
+    }
+
+    .event-card .card-content * {
+        margin-bottom: 8px !important; /* Separa el texto cómodamente */
+    }
+
+    /* 3. Etiquetas de Estado ("Especial", "Próximamente", "Terminado") más pequeñas */
+    .event-card .status {
+        font-size: 0.75rem !important; /* Texto más fino y pequeño */
+        padding: 4px 10px !important;  /* Menos tosco, más estilizado */
+        width: fit-content !important;  /* Se adapta justo al tamaño de la palabra */
+        border-radius: 20px !important;
+    }
+
+    /* 4. Botón de Notificaciones más pequeño y centrado */
+    #notify-btn {
+        font-size: 0.80rem !important;  /* Letra más pequeña */
+        padding: 6px 12px !important;   /* Botón más compacto y elegante */
+        margin: 30px auto 0px auto !important;
+        display: block !important;
+        width: auto !important;         /* Ya no ocupa toda la pantalla, solo lo necesario */
+        max-width: 220px;
+    }
+
+    /* 5. Adaptación de Redes Sociales (Mantiene tu estilo original pero no se desborda) */
+
+    .redes-scroll .red {
+        padding: 8px 14px !important;   /* Ajuste sutil de tamaño para el dedo */
+        font-size: 0.9rem !important;   /* Texto adaptado para pantallas móviles */
+    }
 }
