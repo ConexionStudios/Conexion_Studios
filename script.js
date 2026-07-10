@@ -15,19 +15,25 @@ function createParticles() {
 
 // Datos
 const musicaData = [
-    { titulo: 'El Legado De Ayer', img src="/Imagenes/Albums/El Legado De Ayer.jpg", desc: 'Álbum 2025', url: '' },
-    { titulo: 'Mi Único Anheló ', img: "/Imagenes/Albums/Mi Unico Anhelo.jpg", desc: 'Álbum 2025', url: '' },
-    { titulo: 'Una Corona', img: "/Imagenes/Albums/Una Corona.jpeg", desc: 'Álbum 2025', url: '' },
-    { titulo: 'Mientras Dormía', img: "/Imagenes/Albums/Mientras Dormia.jpg", desc: 'Single 2025', url: '' }
+    { titulo: 'El Legado De Ayer', img: '/Imagenes/Albums/El Legado De Ayer.jpg', desc: 'Álbum 2025 • Edición Banda', url: 'https://push.fm/fl/eyyhwzpr' },
+    { titulo: 'Mi Único Anheló ', img: '/Imagenes/Albums/Mi Unico Anhelo.jpg', desc: 'Álbum 2025 • ', url: '' },
+    { titulo: 'Una Corona', img: '/Imagenes/Albums/Una Corona.jpeg', desc: 'Álbum 2025 • Instrumental', url: 'https://push.fm/fl/bbp96ewk' },
+    { titulo: 'Mientras Dormía', img: '/Imagenes/Albums/Mientras Dormia.jpg', desc: 'Single 2025 • Pop Romántico', url: 'https://youtu.be/fJcODM1mfnw?si=NhgAHjUyYkxiO6Pc' }
 ];
 
 const miniseriesData = [
-    { titulo: 'Sombras Eternas', img: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80', desc: 'Temporada 2 • Thriller', url: 'https://www.youtube.com/' },
-    { titulo: 'El Último Latido', img: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80', desc: 'Serie original • Drama', url: 'https://www.netflix.com/' }
+    { titulo: 'Las Aventuras De Barnaby', img: '', desc: 'Temporada 1 • Piloto • Cristian R.M', url: '' }
 ];
 
 const eventosData = [
-    { titulo: 'Actualización Completa', fecha: '2026-07-11T15:00:00', lugar: 'Links + Series + Redes Sociales + Colaboraciones + Movile', estado: 'proximo' },
+    { titulo: 'Actualización Completa', fecha: '2026-07-11T15:00:00', lugar: 'Enlaces • Apartados Adicionales', estado: 'Terminado' },
+    { titulo: 'Las Aventuras De Barnaby • Trailer', fecha: '0000-00-00T00:00:00', lugar: 'Youtube', estado: 'proximo' },
+    { titulo: 'Actualizacion De Redes Sociales', fecha: '0000-00-00T00:00:00', lugar: 'Facebook • Instagram • Tik Tok • Thereads', estado: 'proximo' },
+    { titulo: 'Las Aventuras De Barnaby • Piloto', fecha: '0000-00-00T00:00:00', lugar: 'Youtube', estado: 'proximo' },
+    { titulo: 'Las Aventuras De Barnaby • Traduccion al Ingles', fecha: '0000-00-00T00:00:00', lugar: 'Youtube • Voces', estado: 'proximo' },
+    { titulo: 'Las Aventuras De Barnaby • Episodio 2', fecha: '0000-00-00T00:00:00', lugar: 'Youtube', estado: 'proximo' },
+    { titulo: 'Las Aventuras De Barnaby • SoundsTracks', fecha: '0000-00-00T00:00:00', lugar: 'Youtube • Spotify', estado: 'proximo' },
+    { titulo: 'Album Completo • Cristian R.M', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube • Dreezer', estado: 'proximo' }
 ];
 
 const redesData = [
@@ -44,7 +50,9 @@ const redesData = [
 
 const colaboracionesData = [
     { nombre: 'Conexión', rol: 'Director General', bgImage: "/Imagenes/Creadores/Conexion.png", confirmado: true, estado: 'confirmado' },
-    { nombre: 'Cristian R.M', rol: 'Director Principal', bgImage: "/Imagenes/Creadores/Cristian.png", confirmado: false, estado: 'proximo' }
+    { nombre: 'Cristian R.M', rol: 'Director Principal', bgImage: "/Imagenes/Creadores/Cristian.png", confirmado: true, estado: 'confirmado' },
+    { nombre: 'IDAVEX MX', rol: 'Creador De Contenido', bgImage: "", confirmado: false, estado: 'proximo' },
+    { nombre: 'Miguel A.G', rol: 'Creador De Contenido', bgImage: "", confirmado: false, estado: 'proximo' }
 ];
 
 function formatFecha(fecha) {
@@ -57,14 +65,13 @@ function formatFecha(fecha) {
     });
 }
 
-// Renderizado de secciones horizontales (Música y Miniseries)
+// Renderizado
 function renderHorizontal(id, data) {
     const container = document.getElementById(id);
     if (!container) return;
 
     container.innerHTML = data.map(item => {
         const hasLink = item.url && item.url !== '' && item.url !== '#';
-        
         return `
             <div class="card-link ${!hasLink ? 'no-link' : ''}">
                 <div class="card fade-in" style="--accent:${getAccentFromImage(item.img || item.titulo)}">
@@ -81,9 +88,7 @@ function renderHorizontal(id, data) {
 }
 
 function getAccentFromImage(url) {
-    const palette = [
-        '#ff2a2a', '#ff6b3d', '#ff8c42', '#4da3ff', '#00d4ff', '#7c4dff', '#ff4f81'
-    ];
+    const palette = ['#ff2a2a', '#ff6b3d', '#ff8c42', '#4da3ff', '#00d4ff', '#7c4dff', '#ff4f81'];
     const hash = Array.from(url).reduce((acc, char) => acc + char.charCodeAt(0), 0);
     return palette[hash % palette.length];
 }
@@ -123,9 +128,7 @@ function renderEventos() {
     const cards = container.querySelectorAll('.event-card');
     const dots = dotsContainer.querySelectorAll('.roulette-dot');
 
-    cards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.06}s`;
-    });
+    cards.forEach((card, index) => card.style.animationDelay = `${index * 0.06}s`);
 
     const listHeight = container.scrollHeight || container.offsetHeight || 1;
     cards.forEach((card, index) => {
@@ -141,29 +144,19 @@ function renderEventos() {
         if (!total) return;
         const scrollRatio = viewport.scrollTop / (viewport.scrollHeight - viewport.clientHeight || 1);
         const index = Math.min(total - 1, Math.max(0, Math.round(scrollRatio * (total - 1))));
-        dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === index));
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     };
 
     viewport.addEventListener('scroll', () => requestAnimationFrame(updateActiveDot), { passive: true });
 
-    // Hacer dots clicables
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-            const targetCard = cards[index];
-            if (targetCard) {
-                targetCard.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-            }
+            cards[index]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
     });
 
     updateActiveDot();
     startCountdown();
-
-    // Notificaciones
-    setupNotifications();
 }
 
 function startCountdown() {
@@ -177,17 +170,12 @@ function startCountdown() {
 
     const update = () => {
         const dist = target - Date.now();
-
         if (dist < 0) {
             el.classList.add('finished');
-            
-            // Después de que desaparezca, intentamos pasar al siguiente evento
             setTimeout(() => {
-                const nextCard = card.nextElementSibling;
-                if (nextCard && nextCard.classList.contains('event-card')) {
-                    nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            }, 1000);
+                const next = card.nextElementSibling;
+                if (next) next.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 1200);
             return;
         }
 
@@ -197,31 +185,27 @@ function startCountdown() {
         const s = Math.floor((dist % 60000) / 1000);
 
         el.classList.remove('finished');
-        el.innerHTML = `
-            <span>${d}</span>d 
-            <span>${h}</span>h 
-            <span>${m}</span>m 
-            <span class="seconds">${s}</span>s
-        `;
+        el.innerHTML = `<span>${d}</span>d <span>${h}</span>h <span>${m}</span>m <span class="seconds">${s}</span>s`;
     };
 
     update();
-    const interval = setInterval(update, 1000);
-
-    // Limpieza del intervalo cuando ya no se necesite
-    return interval;
+    setInterval(update, 1000);
 }
 
 function renderRedes() {
     const container = document.getElementById('redes-scroll');
     if (!container) return;
 
-    container.innerHTML = redesData.map(r => `
-        <a href="${r.url}" target="_blank" rel="noreferrer" class="red" style="--accent:${r.color}">
-            ${r.icon}
-            <p>${r.nombre}</p>
-        </a>
-    `).join('');
+    container.innerHTML = redesData.map(r => {
+        const hasLink = r.url && r.url !== '' && r.url !== '#';
+        return `
+            <a href="${r.url || '#'}" target="_blank" rel="noreferrer" class="red ${!hasLink ? 'no-link' : ''}" style="--accent:${r.color}">
+                ${r.icon}
+                <p>${r.nombre}</p>
+                ${!hasLink ? '<small class="unavailable">No disponible aún</small>' : ''}
+            </a>
+        `;
+    }).join('');
 }
 
 function renderColaboraciones() {
@@ -231,14 +215,13 @@ function renderColaboraciones() {
     container.innerHTML = colaboracionesData.map(item => {
         const isActive = item.estado === 'proximo';
         const isConfirmed = item.confirmado;
-
         return `
             <div class="collab-card fade-in ${isConfirmed ? 'confirmed' : 'pending'} ${isActive ? 'active' : ''}" style="--collab-bg:${item.bgImage ? `linear-gradient(135deg, rgba(0,0,0,0.78), rgba(8,8,8,0.35)), url('${item.bgImage}')` : 'none'}">
                 <div class="collab-status ${isActive ? 'active-dot' : ''}"></div>
                 <div class="collab-card-content">
                     <div class="collab-header">
                         <h3 class="collab-name">${item.nombre}</h3>
-                        ${isConfirmed ? `<span class="verified-badge" aria-label="Confirmado"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 14.4 8.6 21 9.3 15.9 13.7 17.4 20 12 16.8 6.6 20 8.1 13.7 3 9.3 9.6 8.6 12 2Z"/></svg></span>` : ''}
+                        ${isConfirmed ? `<span class="verified-badge"><svg viewBox="0 0 24 24"><path d="M12 2 14.4 8.6 21 9.3 15.9 13.7 17.4 20 12 16.8 6.6 20 8.1 13.7 3 9.3 9.6 8.6 12 2Z"/></svg></span>` : ''}
                     </div>
                     <p>${item.rol}</p>
                     <small class="collab-meta">${isConfirmed ? 'Confirmado' : isActive ? 'Próximo' : 'Terminado'}</small>
@@ -248,70 +231,18 @@ function renderColaboraciones() {
     }).join('');
 }
 
-// Notificaciones para eventos
-function setupNotifications() {
-    const notifyBtn = document.createElement('button');
-    notifyBtn.id = 'notify-btn';
-    notifyBtn.className = 'notify-button';
-    notifyBtn.innerHTML = `🛎️ Activar notificaciones`;
-
-    const eventosSection = document.querySelector('#eventos-section') || document.querySelector('section') || document.body;
-    if (eventosSection) {
-        eventosSection.style.position = 'relative';
-        eventosSection.appendChild(notifyBtn);
-    }
-
-    notifyBtn.addEventListener('click', async () => {
-        if (!("Notification" in window)) {
-            alert("Tu navegador no soporta notificaciones.");
-            return;
-        }
-
-        let permission = Notification.permission;
-        if (permission === "granted") {
-            showTestNotification();
-        } else if (permission !== "denied") {
-            permission = await Notification.requestPermission();
-            if (permission === "granted") {
-                showTestNotification();
-            }
-        } else {
-            alert("Las notificaciones están bloqueadas. Actívalas en la configuración de tu navegador.");
-        }
-    });
-}
-
-function showTestNotification() {
-    const notification = new Notification("¡Notificaciones activadas!", {
-        body: "Recibirás alertas para los próximos eventos y lives.",
-        icon: "https://via.placeholder.com/128/ff2a2a/ffffff?text=🎤",
-        tag: "event-notification"
-    });
-    notification.onclick = () => window.focus();
-}
-
 // Inicializar
 window.addEventListener('load', () => {
     createParticles();
-   renderHorizontal('musica-scroll', musicaData);
-   renderHorizontal('miniseries-scroll', miniseriesData);
+    renderHorizontal('musica-scroll', musicaData);
+    renderHorizontal('miniseries-scroll', miniseriesData);
     renderEventos();
     renderRedes();
     renderColaboraciones();
 
-    const musicaScroll = document.getElementById('musica-scroll');
-    const seriesScroll = document.getElementById('miniseries-scroll');
-    const redesScroll = document.getElementById('redes-scroll');
-
-    if (musicaScroll) musicaScroll.scrollLeft = 0;
-    if (seriesScroll) seriesScroll.scrollLeft = 0;
-    if (redesScroll) redesScroll.scrollLeft = 0;
-
     const obs = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.15 });
 
