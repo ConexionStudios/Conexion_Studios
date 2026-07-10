@@ -67,6 +67,7 @@ h1, h2 {
 }
 h1 { font-size:clamp(2.2rem, 4vw, 3.2rem); margin-bottom:0.8rem; }
 h2 { font-size:clamp(1.9rem, 3vw, 2.6rem); margin-bottom:2rem; }
+
 .section-title {
     display:inline-block;
     position:relative;
@@ -75,6 +76,7 @@ h2 { font-size:clamp(1.9rem, 3vw, 2.6rem); margin-bottom:2rem; }
     opacity:0;
     animation:fadeTitle 0.8s ease forwards;
 }
+
 @keyframes fadeTitle { from { opacity:0; transform:translateX(-50%) translateY(16px);} to { opacity:1; transform:translateX(-50%) translateY(0);} }
 @keyframes driftTitle { from { opacity:0; transform:translateX(-50%) translateY(12px) scale(0.96);} to { opacity:1; transform:translateX(-50%) translateY(0) scale(1);} }
 @keyframes glowTitle { from { opacity:0; transform:translateX(-50%) scale(0.95);} to { opacity:1; transform:translateX(-50%) scale(1);} }
@@ -180,11 +182,13 @@ h2 { font-size:clamp(1.9rem, 3vw, 2.6rem); margin-bottom:2rem; }
 
 .horizontal-scroll .card {
     flex:0 0 min(320px, 85vw);
+
 }
 .card-link {
     display:block; text-decoration:none; color:inherit;
     flex:0 0 auto;
 }
+
 .card-link .card { height:100%; }
 .card:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 0 35px rgba(255,42,42,0.5); }
 .card::before {
@@ -199,14 +203,23 @@ h2 { font-size:clamp(1.9rem, 3vw, 2.6rem); margin-bottom:2rem; }
 }
 .card:hover::before { opacity:0.8; }
 .card > * { position:relative; z-index:1; }
-
 .card img { width:100%; height:220px; object-fit:cover; }
 .card-content {
-    padding:1.25rem 1.1rem 1.4rem; text-align:center; display:flex;
-    flex-direction:column; gap:0.35rem; min-height:120px;
+    padding:1.25rem 1.1rem 1.4rem; 
+    text-align:center; 
+    display:flex;
+    flex-direction:column; 
+    gap:0.35rem; 
+    min-height:120px;
 }
-.card-content h3 { font-size:1.15rem; color:#fff; margin-bottom:0.25rem; }
-.card-content p, .card-content small { color:#cfcfcf; }
+.card-content h3 { 
+    font-size:1.15rem; 
+    color:#fff; 
+    margin-bottom:0.25rem; 
+}
+.card-content p, .card-content small { 
+    color:#cfcfcf; 
+}
 
 .event-card { 
     position:relative; 
@@ -472,4 +485,151 @@ footer {
     font-style: italic;
     margin-top: 4px;
     display: block;
+}
+
+/* Eventos */
+.events-roulette {
+    display:grid; grid-template-columns:auto 1fr; gap:1rem; max-width:920px; margin:0 auto;
+}
+.roulette-dot {
+    position:absolute; left:50%; top:0; transform:translateX(-50%);
+    width:14px; height:14px; border-radius:50%; border:2px solid rgba(255,255,255,0.4);
+    background:rgba(255,255,255,0.15); box-shadow:0 0 0 3px rgba(8,8,8,0.6);
+    transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+    pointer-events:auto;
+    cursor:pointer;
+    opacity:0.85;
+    z-index:10;
+}
+.roulette-dot:hover {
+    background:rgba(255,255,255,0.35);
+    transform:translateX(-50%) scale(1.25);
+    box-shadow:0 0 0 3px rgba(8,8,8,0.8), 0 0 12px rgba(255,42,42,0.4);
+}
+.roulette-dot.active {
+    background:var(--rojo); 
+    border-color:var(--rojo);
+    transform:translateX(-50%) scale(1.35); 
+    box-shadow:0 0 0 4px rgba(8,8,8,0.7), 0 0 18px rgba(255,42,42,0.5);
+}
+
+.event-card { 
+    position:relative; 
+    overflow:hidden; 
+    transition:transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease; 
+    border:1px solid rgba(255,42,42,0.18);
+}
+.event-card:hover { 
+    transform:translateY(-6px) scale(1.015); 
+    box-shadow:0 20px 45px rgba(0,0,0,0.35);
+}
+
+.status.terminado {
+    background:linear-gradient(135deg, #0f8a3a 0%, #0a6b2c 100%);
+    color:#ffffff;
+    border:1px solid #0f8a3a;
+}
+.status.proximo {
+    background:linear-gradient(135deg, #6d6d6d 0%, #4f4f4f 100%);
+    color:#efefef;
+}
+.status.destacado {
+    background:linear-gradient(135deg, var(--rojo) 0%, #d61f1f 100%);
+    color:#fff;
+}
+
+/* Countdown Animado */
+.countdown {
+    font-size:1.25rem; 
+    font-weight:700; 
+    color:var(--rojo);
+    text-align:center; 
+    margin:0.8rem 0 0.35rem; 
+    display:flex; 
+    justify-content:center; 
+    gap:8px; 
+    flex-wrap:wrap;
+    animation: countdownPop 0.6s ease;
+}
+.countdown span {
+    display:inline-flex; 
+    align-items:center; 
+    justify-content:center; 
+    min-width:52px;
+    padding:0.45rem 0.6rem; 
+    border-radius:12px; 
+    background:rgba(255,42,42,0.12);
+    border:1px solid rgba(255,42,42,0.3);
+    transition:all 0.4s ease;
+    text-shadow:0 0 12px rgba(255,42,42,0.6);
+}
+.countdown span.seconds {
+    animation: tick 1s linear infinite;
+}
+.countdown.finished {
+    opacity:0;
+    transform:scale(0.8);
+    transition:all 0.8s ease;
+}
+@keyframes countdownPop { 0% { transform:scale(0.7); opacity:0; } 100% { transform:scale(1); opacity:1; } }
+@keyframes tick { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+
+/* Redes Sociales */
+.red {
+    min-width:170px; 
+    padding:1rem 0.9rem; 
+    border-radius:16px; 
+    background:rgba(30,30,30,0.82);
+    display:flex; 
+    flex-direction:column; 
+    align-items:center; 
+    justify-content:center; 
+    gap:0.55rem;
+    transition:all 0.3s ease; 
+    text-decoration:none; 
+    color:#fff;
+    border:1px solid rgba(255,255,255,0.06);
+    flex:0 0 auto;
+    scroll-snap-align:start;
+    position: relative;
+    overflow: hidden;
+}
+.red::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle, var(--accent), transparent 70%);
+    filter: blur(25px);
+    opacity: 0.25;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+}
+.red:hover::before {
+    opacity: 0.45;
+}
+.red.no-link {
+    opacity: 0.65;
+    filter: grayscale(0.7);
+    pointer-events: none;
+}
+.red.no-link::before {
+    opacity: 0.1;
+}
+.red .unavailable {
+    color: #888;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+footer {
+    background:#000; padding:2.2rem 1rem; text-align:center;
+    border-top:2px solid var(--rojo); color:#cfcfcf;
+}
+
+@media (max-width: 680px) {
+    header { padding:1rem 5%; }
+    .logo { font-size:2rem; }
+    section { padding:70px 0 24px; }
+    .section-shell { padding:1.2rem 1rem; }
+    .card, .red { min-width:0; }
 }
