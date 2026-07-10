@@ -15,10 +15,10 @@ function createParticles() {
 
 // Datos
 const musicaData = [
-    { titulo: 'El Legado De Ayer', img: '/Imagenes/Albums/El Legado De Ayer.jpg', desc: 'Álbum 2025', url: '' },
-    { titulo: 'Mi Único Anheló ', img: '/Imagenes/Albums/Mi Unico Anhelo.jpg', desc: 'Álbum 2025', url: '' },
-    { titulo: 'Una Corona', img: '/Imagenes/Albums/Una Corona.jpeg', desc: 'Álbum 2025', url: '' },
-    { titulo: 'Mientras Dormía', img: '/Imagenes/Albums/Mientras Dormia.jpg', desc: 'Single 2025', url: '' }
+    { titulo: 'El Legado De Ayer', img src="/Imagenes/Albums/El Legado De Ayer.jpg", desc: 'Álbum 2025', url: '' },
+    { titulo: 'Mi Único Anheló ', img: "/Imagenes/Albums/Mi Unico Anhelo.jpg", desc: 'Álbum 2025', url: '' },
+    { titulo: 'Una Corona', img: "/Imagenes/Albums/Una Corona.jpeg", desc: 'Álbum 2025', url: '' },
+    { titulo: 'Mientras Dormía', img: "/Imagenes/Albums/Mientras Dormia.jpg", desc: 'Single 2025', url: '' }
 ];
 
 const miniseriesData = [
