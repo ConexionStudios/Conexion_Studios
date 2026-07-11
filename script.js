@@ -15,14 +15,15 @@ function createParticles() {
 
 // Datos
 const musicaData = [
+    { titulo: 'Nuevo Sencillo', img: 'Imagenes/En Espera/Proximamente….jpg', desc: 'Single 2026 • Cristian R.M', url: '' },
+    { titulo: 'Mi Único Anheló ', img: 'Imagenes/Portada De Album/Mi Unico Anhelo.jpg', desc: 'Álbum 2025 • Balada Pop / Acústico', url: 'https://push.fm/fl/0w6acbfs' },
     { titulo: 'El Legado De Ayer', img: 'Imagenes/Portada De Album/El Legado De Ayer.jpg', desc: 'Álbum 2025 • Edición Banda', url: 'https://push.fm/fl/eyyhwzpr' },
-    { titulo: 'Mi Único Anheló ', img: 'Imagenes/Portada De Album/Mi Unico Anhelo.jpg', desc: 'Álbum 2025 • ', url: '' },
     { titulo: 'Una Corona', img: 'Imagenes/Portada De Album/Una Corona.jpeg', desc: 'Álbum 2025 • Instrumental', url: 'https://push.fm/fl/bbp96ewk' },
     { titulo: 'Mientras Dormía', img: 'Imagenes/Portada De Album/Mientras Dormia.jpg', desc: 'Single 2025 • Pop Romántico', url: 'https://youtu.be/fJcODM1mfnw?si=NhgAHjUyYkxiO6Pc' }
 ];
 
 const miniseriesData = [
-    { titulo: 'Las Aventuras De Barnaby', img: 'Imagenes/Portada De Series/Próximamente.jpg', desc: 'Temporada 1 • Piloto • Cristian R.M', url: '' }
+    { titulo: 'Las Aventuras De Barnaby', img: 'Imagenes/En Espera/Muy Pronto.jpg', desc: 'Temporada 1 • Piloto • Cristian R.M', url: '' }
 ];
 
 const eventosData = [
@@ -33,6 +34,7 @@ const eventosData = [
     { titulo: 'Las Aventuras De Barnaby • Traduccion al Ingles', fecha: '0000-00-00T00:00:00', lugar: 'Youtube • Voces', estado: 'proximo' },
     { titulo: 'Las Aventuras De Barnaby • Episodio 2', fecha: '0000-00-00T00:00:00', lugar: 'Youtube', estado: 'proximo' },
     { titulo: 'Las Aventuras De Barnaby • SoundsTracks', fecha: '0000-00-00T00:00:00', lugar: 'Youtube • Spotify', estado: 'proximo' },
+    { titulo: 'Bueno De Estar Vivo • Sencillo • Cristian R.M', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube • Dreezer', estado: 'proximo' },
     { titulo: 'Album Completo • Cristian R.M', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube • Dreezer', estado: 'proximo' }
 ];
 
@@ -42,8 +44,9 @@ const redesData = [
     { nombre: 'Threads', url: 'https://www.threads.com/@conexion.studios', icon: '<span class="social-icon threads"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.4 0 4.2 1 5.5 2.8 1.2 1.6 1.8 3.5 1.8 5.7a10.7 10.7 0 0 1-2.2 6.5c-.8 1.1-1.9 2.1-3.2 2.9a8.6 8.6 0 0 1-7.4.2 7.3 7.3 0 0 1-3.2-3 8.7 8.7 0 0 1-1-4.3c0-2.4.9-4.6 2.6-6.2C7.2 3.3 9.3 2.4 12 2Zm0 2.2c-1.8 0-3.4.8-4.6 2.2-1.1 1.3-1.7 2.9-1.7 4.6 0 1.5.5 2.9 1.4 4 1 .1 1.9.1 2.8-.1 1.4-.3 2.6-1 3.5-2 .8-1 .9-2.2.9-3.4 0-.6-.1-1.2-.2-1.8-.2-.7-.4-1.3-.8-1.8-.7-.9-1.7-1.4-2.8-1.6-.7-.1-1.3-.1-2 .1a4.2 4.2 0 0 0-1.7 1.2c-.4.5-.7 1-.7 1.6 0 .6.2 1.2.5 1.7a3 3 0 0 0 2.1 1.3c.8.1 1.6-.1 2.3-.4.4-.2.8-.4 1.1-.8.2-.3.3-.6.3-.9 0-.4-.2-.8-.6-1.1-.6-.4-1.4-.5-2.1-.4-.6.1-1.2.4-1.7.8-.4.4-.7.8-.8 1.3-.2.9.1 1.8.8 2.4.6.5 1.4.8 2.2.8.8 0 1.6-.3 2.2-.8.8-.7 1.2-1.7 1.3-2.8.1-1.4-.2-2.8-.9-4.1-.6-1-1.4-1.7-2.4-2.3-.6-.3-1.3-.5-2-.6-.9-.1-1.8-.1-2.6.1-1.3.3-2.4 1-3.2 2-.5.6-.9 1.3-1 2-.2 1-.1 2 .3 2.9.7 1.5 2 2.5 3.6 2.8.9.2 1.8.2 2.8 0 1.4-.3 2.7-1.2 3.6-2.4.8-1.2 1.1-2.6.9-4-.2-1.4-.6-2.8-1.5-3.9C15 4 13.7 2.8 12 2.2Z"/></svg></span>', color: '#000000' },
     { nombre: 'Tik Tok', url: 'https://www.tiktok.com/@conexionstudiosmx', icon: '<span class="social-icon tiktok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 2h2.2a4.8 4.8 0 0 0 4.8 4.8v2.4a7.2 7.2 0 0 1-4.8-1.6v7.1a5.2 5.2 0 1 1-4.9-5.2c.2 0 .4 0 .6.1v2.3a2.9 2.9 0 1 0 2.3 2.8V2Z"/></svg></span>', color: '#000000' },
     { nombre: 'Spotify', url: '', icon: '<span class="social-icon spotify"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.62.62 0 0 1-.853.206c-2.347-1.434-5.303-1.76-8.784-.966a.622.622 0 0 1-.277-1.213c3.811-.872 7.076-.496 9.707 1.114a.62.62 0 0 1 .207.859zm1.226-2.719a.777.777 0 0 1-1.067.256c-2.686-1.652-6.784-2.133-9.962-1.17a.778.778 0 0 1-.446-1.492c3.633-1.103 8.148-.567 11.22 1.328a.777.777 0 0 1 .255 1.078zm.106-2.831C14.392 8.813 8.414 8.614 4.965 9.661a.933.933 0 1 1-.54-1.785c3.966-1.204 10.55-1.002 14.58 1.39a.933.933 0 1 1-.96 1.597z"/></svg></span>', color: '#1ed760' },
-    { nombre: 'Youtube (Canal Principal)', url: 'https://www.youtube.com/@SoyCristianRM', icon: '<span class="social-icon youtube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 0 0 1 7.5 31.4 31.4 0 0 0 .5 12a31.4 31.4 0 0 0 .5 4.5 3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 23.5 12 31.4 31.4 0 0 0 23 7.5Zm-13 8.3V8.2l6 3.8-6 4.8Z"/></svg></span>', color: '#ff0000' },
-    { nombre: 'Youtube (Canal Secundario)', url: 'https://www.youtube.com/@ConexionStudios-MX', icon: '<span class="social-icon youtube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 0 0 1 7.5 31.4 31.4 0 0 0 .5 12a31.4 31.4 0 0 0 .5 4.5 3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 23.5 12 31.4 31.4 0 0 0 23 7.5Zm-13 8.3V8.2l6 3.8-6 4.8Z"/></svg></span>', color: '#ff0000' },
+    { nombre: 'Youtube (Canal Principal)', url: 'https://www.youtube.com/@SoyCristianRM', icon: '<span class="social-icon youtube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 0 0 1 7.5 31.4 31.4 0 0 0 .5 12a31.4 31.4 0 0 0 .5 4.5 3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 23.5 12 31.4 31.4 0 0 0 23 7.5Zm-13 8.3V8.2l6 3.8-6 4.8Z"/></svg></span>', color: '#001b28' },
+    { nombre: 'Youtube (Canal Secundario)', url: 'https://www.youtube.com/@ConexionStudios-MX', icon: '<span class="social-icon youtube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 0 0 1 7.5 31.4 31.4 0 0 0 .5 12a31.4 31.4 0 0 0 .5 4.5 3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 23.5 12 31.4 31.4 0 0 0 23 7.5Zm-13 8.3V8.2l6 3.8-6 4.8Z"/></svg></span>', color: '#7b0000' },
+    { nombre: 'Youtube', url: 'https://www.youtube.com/@ConexionStudios', icon: '<span class="social-icon youtube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 0 0 1 7.5 31.4 31.4 0 0 0 .5 12a31.4 31.4 0 0 0 .5 4.5 3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 23.5 12 31.4 31.4 0 0 0 23 7.5Zm-13 8.3V8.2l6 3.8-6 4.8Z"/></svg></span>', color: '#1e1f00' },
     { nombre: 'Youtube Music', url: '', icon: '<span class="social-icon yt-music"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 17c-3.86 0-7-3.14-7-7s3.14-7 7-7s7 3.14 7 7s-3.14 7-7 7zm0-11.5c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5s4.5-2.02 4.5-4.5s-2.02-4.5-4.5-4.5zm-1.5 7v-5l4 2.5l-4 2.5z"/></svg></span>', color: '#ff0000' }
 ];
 
