@@ -27,15 +27,23 @@ const miniseriesData = [
 ];
 
 const eventosData = [
-    { titulo: 'Actualización Completa', fecha: '2026-07-11T15:00:00', lugar: 'Enlaces • Apartados Adicionales', estado: 'Terminado' },
+    { titulo: 'Actualización Completa', fecha: '2026-07-25T12:00:00', lugar: 'Enlaces • Apartados Adicionales', estado: 'Terminado' },
+    { titulo: 'Actualizacion De Redes Sociales', fecha: '2026-07-27T10:00:00', lugar: 'Facebook • Instagram • Tik Tok • Thereads', estado: 'proximo' },
     { titulo: 'Las Aventuras De Barnaby • Trailer', fecha: '0000-00-00T00:00:00', lugar: 'Youtube', estado: 'proximo' },
-    { titulo: 'Actualizacion De Redes Sociales', fecha: '0000-00-00T00:00:00', lugar: 'Facebook • Instagram • Tik Tok • Thereads', estado: 'proximo' },
     { titulo: 'Las Aventuras De Barnaby • Piloto', fecha: '0000-00-00T00:00:00', lugar: 'Youtube', estado: 'proximo' },
     { titulo: 'Las Aventuras De Barnaby • Traduccion al Ingles', fecha: '0000-00-00T00:00:00', lugar: 'Youtube • Voces', estado: 'proximo' },
     { titulo: 'Las Aventuras De Barnaby • Episodio 2', fecha: '0000-00-00T00:00:00', lugar: 'Youtube', estado: 'proximo' },
     { titulo: 'Las Aventuras De Barnaby • SoundsTracks', fecha: '0000-00-00T00:00:00', lugar: 'Youtube • Spotify', estado: 'proximo' },
-    { titulo: 'Bueno De Estar Vivo • Sencillo • Cristian R.M', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube • Dreezer', estado: 'proximo' },
-    { titulo: 'Album Completo • Cristian R.M', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube • Dreezer', estado: 'proximo' }
+    { titulo: 'Casi Algo? • Sencillo • Cristian R.M', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube Music • Dreezer • Apple Music', estado: 'proximo' },
+    { titulo: 'Espacios Vacios • Sencillo • Cristian R.M', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube Music • Dreezer • Apple Music', estado: 'proximo' },
+    { titulo: 'Good To Be Alive • Sencillo • Cristian R.M', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube Music • Dreezer • Apple Music', estado: 'proximo' },
+    { titulo: 'Mil Historias Más • Sencillo • Cristian R.M', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube Music • Dreezer • Apple Music', estado: 'proximo' },
+    { titulo: 'Mil Historias Más V2 • Sencillo • Cristian R.M', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube Music • Dreezer • Apple Music', estado: 'proximo' },
+    { titulo: 'Modo Avion • Sencillo • Cristian R.M', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube Music • Dreezer • Apple Music', estado: 'proximo' },
+    { titulo: 'Tus Ojos Alas 3 AM • Sencillo • Cristian R.M', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube Music • Dreezer • Apple Music', estado: 'proximo' },
+    { titulo: 'Album • MX IDAVEX', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube • Dreezer', estado: 'proximo' },
+    { titulo: 'Album • Miguel A.G', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube • Dreezer', estado: 'proximo' },
+    { titulo: 'SoundTracks • Album Completo • Cristian R.M', fecha: '0000-00-00T00:00:00', lugar: 'Spotify • Youtube • Dreezer', estado: 'proximo' }
 ];
 
 const redesData = [
